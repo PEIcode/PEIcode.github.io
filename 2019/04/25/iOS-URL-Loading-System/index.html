@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT">
+  <meta name="keywords" content="HTTP,">
 
 
 
@@ -79,16 +79,22 @@
 
 
 
-<meta name="description" content="Happy coding">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Pei丶Blog">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="###目的： 了解iOS如何进行网络请求1首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。 URL Loading System Interact with URLs and communicate with servers using standard Internet protocols.URLSession使用标准Internet协议与url交互并与服务器通信。">
+<meta name="keywords" content="HTTP">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS URL Loading System">
+<meta property="og:url" content="http://yoursite.com/2019/04/25/iOS-URL-Loading-System/index.html">
 <meta property="og:site_name" content="Pei丶Blog">
-<meta property="og:description" content="Happy coding">
+<meta property="og:description" content="###目的： 了解iOS如何进行网络请求1首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。 URL Loading System Interact with URLs and communicate with servers using standard Internet protocols.URLSession使用标准Internet协议与url交互并与服务器通信。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-c91673eeb2bdd038.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-42ddff79667db552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-a144bc851b2b1cab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-04-25T10:14:38.739Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Pei丶Blog">
-<meta name="twitter:description" content="Happy coding">
+<meta name="twitter:title" content="iOS URL Loading System">
+<meta name="twitter:description" content="###目的： 了解iOS如何进行网络请求1首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。 URL Loading System Interact with URLs and communicate with servers using standard Internet protocols.URLSession使用标准Internet协议与url交互并与服务器通信。">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6379271-c91673eeb2bdd038.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -118,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2019/04/25/iOS-URL-Loading-System/">
 
 
 
 
 
-  <title>Pei丶Blog</title>
+  <title>iOS URL Loading System | Pei丶Blog</title>
   
 
 
@@ -143,8 +149,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -217,9 +222,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -249,9 +254,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2019/04/25/iOS-URL-Loading-System/" itemprop="url">iOS URL Loading System</a></h1>
+          <h1 class="post-title" itemprop="name headline">iOS URL Loading System</h1>
         
 
         <div class="post-meta">
@@ -301,9 +304,7 @@
       
 
       
-        
-          
-            <p>###目的： 了解iOS如何进行网络请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。</span><br></pre></td></tr></table></figure></p>
+        <p>###目的： 了解iOS如何进行网络请求<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。</span><br></pre></td></tr></table></figure></p>
 <h2 id="URL-Loading-System"><a href="#URL-Loading-System" class="headerlink" title="URL Loading System"></a>URL Loading System</h2><blockquote>
 <p>Interact with URLs and communicate with servers using standard Internet protocols.<br>URLSession<br>使用标准Internet协议与url交互并与服务器通信。</p>
 </blockquote>
@@ -320,8 +321,6 @@
 <p><img src="https://upload-images.jianshu.io/upload_images/6379271-a144bc851b2b1cab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="通过代理接收传输详细信息和结果.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line">private lazy var session: URLSession = &#123;</span><br><span class="line">let configuration = URLSessionConfiguration.default</span><br><span class="line">configuration.waitsForConnectivity = true</span><br><span class="line">return URLSession(configuration: configuration,</span><br><span class="line">delegate: self, delegateQueue: nil)</span><br><span class="line">&#125;()</span><br><span class="line">var receivedData: Data?</span><br><span class="line"></span><br><span class="line">func startLoad() &#123;</span><br><span class="line">loadButton.isEnabled = false</span><br><span class="line">let url = URL(string: &quot;https://www.example.com/&quot;)!</span><br><span class="line">receivedData = Data()</span><br><span class="line">let task = session.dataTask(with: url)</span><br><span class="line">task.resume()</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">// delegate methods</span><br><span class="line">///验证响应是否具有成功的HTTP状态代码，MIME类型是否为text/html或text/plain。如果两者都不是，任务就被取消;否则，它被允许继续。</span><br><span class="line">func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive response: URLResponse,</span><br><span class="line">completionHandler: @escaping (URLSession.ResponseDisposition) -&gt; Void) &#123;</span><br><span class="line">guard let response = response as? HTTPURLResponse,</span><br><span class="line">(200...299).contains(response.statusCode),</span><br><span class="line">let mimeType = response.mimeType,</span><br><span class="line">mimeType == &quot;text/html&quot; else &#123;</span><br><span class="line">completionHandler(.cancel)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">completionHandler(.allow)</span><br><span class="line">&#125;</span><br><span class="line">///获取任务接收到的每个数据实例，并将其附加到名为receivedData的缓冲区中。</span><br><span class="line">func urlSession(_ session: URLSession, dataTask: URLSessionDataTask, didReceive data: Data) &#123;</span><br><span class="line">self.receivedData?.append(data)</span><br><span class="line">&#125;</span><br><span class="line">///首先查看是否发生了传输级错误。如果没有错误，它将尝试将receivedData缓冲区转换为字符串并将其设置为webView的内容。</span><br><span class="line">func urlSession(_ session: URLSession, task: URLSessionTask, didCompleteWithError error: Error?) &#123;</span><br><span class="line">DispatchQueue.main.async &#123;</span><br><span class="line">self.loadButton.isEnabled = true</span><br><span class="line">if let error = error &#123;</span><br><span class="line">handleClientError(error)</span><br><span class="line">&#125; else if let receivedData = self.receivedData,</span><br><span class="line">let string = String(data: receivedData, encoding: .utf8) &#123;</span><br><span class="line">self.webView.loadHTMLString(string, baseURL: task.currentRequest?.url)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-          
-        
       
     </div>
     
@@ -336,14 +335,20 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/HTTP/" rel="tag"># HTTP</a>
+          
+        </div>
+      
+
+      
+      
+      
 
       
 
       
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -353,10 +358,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -364,6 +370,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -384,8 +394,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -436,6 +455,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-Loading-System"><span class="nav-number">1.</span> <span class="nav-text">URL Loading System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetching-Website-Data-into-Memory"><span class="nav-number">2.</span> <span class="nav-text">Fetching Website Data into Memory</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -569,6 +604,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
