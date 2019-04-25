@@ -90,7 +90,7 @@
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-c91673eeb2bdd038.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-42ddff79667db552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 <meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-a144bc851b2b1cab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-25T10:14:38.739Z">
+<meta property="og:updated_time" content="2019-04-25T10:22:54.861Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS URL Loading System">
 <meta name="twitter:description" content="###目的： 了解iOS如何进行网络请求1首先，你得知道HTTP之前的通信过程是怎么样的，具体参考我之前写过的文章。 URL Loading System Interact with URLs and communicate with servers using standard Internet protocols.URLSession使用标准Internet协议与url交互并与服务器通信。">
@@ -313,9 +313,8 @@
 <h2 id="Fetching-Website-Data-into-Memory"><a href="#Fetching-Website-Data-into-Memory" class="headerlink" title="Fetching Website Data into Memory"></a>Fetching Website Data into Memory</h2><blockquote>
 <p>通过从URL会话创建数据任务，直接将数据接收到内存中。</p>
 </blockquote>
-<p>####Receive Results with a Completion Handler<br><img src="https://upload-images.jianshu.io/upload_images/6379271-42ddff79667db552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CompletionHandler.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">func startLoad() &#123;</span><br><span class="line">let url = URL(string: &quot;https://www.example.com/&quot;)!</span><br><span class="line">let task = URLSession.shared.dataTask(with: url) &#123; data, response, error in</span><br><span class="line">if let error = error &#123;</span><br><span class="line">self.handleClientError(error)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">guard let httpResponse = response as? HTTPURLResponse,</span><br><span class="line">(200...299).contains(httpResponse.statusCode) else &#123;</span><br><span class="line">self.handleServerError(response)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">if let mimeType = httpResponse.mimeType, mimeType == &quot;text/html&quot;,</span><br><span class="line">let data = data,</span><br><span class="line">let string = String(data: data, encoding: .utf8) &#123;</span><br><span class="line">DispatchQueue.main.async &#123;</span><br><span class="line">self.webView.loadHTMLString(string, baseURL: url)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">task.resume()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>####Receive Transfer Details and Results with a Delegate</p>
-<blockquote>
+<h3 id="Receive-Results-with-a-Completion-Handler"><a href="#Receive-Results-with-a-Completion-Handler" class="headerlink" title="Receive Results with a Completion Handler"></a>Receive Results with a Completion Handler</h3><p><img src="https://upload-images.jianshu.io/upload_images/6379271-42ddff79667db552.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="CompletionHandler.png"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">func startLoad() &#123;</span><br><span class="line">let url = URL(string: &quot;https://www.example.com/&quot;)!</span><br><span class="line">let task = URLSession.shared.dataTask(with: url) &#123; data, response, error in</span><br><span class="line">if let error = error &#123;</span><br><span class="line">self.handleClientError(error)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">guard let httpResponse = response as? HTTPURLResponse,</span><br><span class="line">(200...299).contains(httpResponse.statusCode) else &#123;</span><br><span class="line">self.handleServerError(response)</span><br><span class="line">return</span><br><span class="line">&#125;</span><br><span class="line">if let mimeType = httpResponse.mimeType, mimeType == &quot;text/html&quot;,</span><br><span class="line">let data = data,</span><br><span class="line">let string = String(data: data, encoding: .utf8) &#123;</span><br><span class="line">DispatchQueue.main.async &#123;</span><br><span class="line">self.webView.loadHTMLString(string, baseURL: url)</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">&#125;</span><br><span class="line">task.resume()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<h3 id="Receive-Transfer-Details-and-Results-with-a-Delegate"><a href="#Receive-Transfer-Details-and-Results-with-a-Delegate" class="headerlink" title="Receive Transfer Details and Results with a Delegate"></a>Receive Transfer Details and Results with a Delegate</h3><blockquote>
 <p>在创建数据任务时，您可以在会话上设置委托，而不是提供完成处理程序，以便在任务进行时对任务的活动进行更大程度的访问。</p>
 </blockquote>
 <p><img src="https://upload-images.jianshu.io/upload_images/6379271-a144bc851b2b1cab.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="通过代理接收传输详细信息和结果.png"></p>
@@ -346,6 +345,22 @@
       
       
 
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/25/输入URL后，接下来会发生什么-经典前端面试题/" rel="prev" title="输入URL后，接下来会发生什么--经典前端面试题">
+                输入URL后，接下来会发生什么--经典前端面试题 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
       
 
       
@@ -419,7 +434,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">1</span>
+                  <span class="site-state-item-count">2</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -465,7 +480,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-Loading-System"><span class="nav-number">1.</span> <span class="nav-text">URL Loading System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetching-Website-Data-into-Memory"><span class="nav-number">2.</span> <span class="nav-text">Fetching Website Data into Memory</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#URL-Loading-System"><span class="nav-number">1.</span> <span class="nav-text">URL Loading System</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Fetching-Website-Data-into-Memory"><span class="nav-number">2.</span> <span class="nav-text">Fetching Website Data into Memory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Receive-Results-with-a-Completion-Handler"><span class="nav-number">2.1.</span> <span class="nav-text">Receive Results with a Completion Handler</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Receive-Transfer-Details-and-Results-with-a-Delegate"><span class="nav-number">2.2.</span> <span class="nav-text">Receive Transfer Details and Results with a Delegate</span></a></li></ol></li></ol></div>
             
 
           </div>
