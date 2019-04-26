@@ -87,10 +87,12 @@
 <meta property="og:site_name" content="PEI丶BLOG">
 <meta property="og:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-04-26T07:12:43.481Z">
+<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta property="og:updated_time" content="2019-04-26T07:36:58.716Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Alamofire 结构解读 ">
 <meta name="twitter:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
+<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
 
 
 
@@ -355,7 +357,8 @@
 <hr>
 <p>AFError.swift<br>里面定义了很多Alamofire请求返回的错误类型。<br>包括：判断url是否可用，response序列化，response失败原因，参数编码失败等，<br>描述的localizedDescription，会返回错误原因。</p>
 <hr>
-<p>目录结构<br>备注<br>AFError</p>
+<p>目录结构<br><img src="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Alamofire目录.png"></p>
+<p>备注<br>AFError</p>
 <p>Alamofire</p>
 <hr>
 <p>Alamofire.swift<br>进行网络请求的任务，所有的方法都封装在这。<br>内部也是通过SessionManager来处理请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public protocol URLConvertible &#123;</span><br><span class="line">/// Returns a URL that conforms to RFC 2396 or throws an `Error`.</span><br><span class="line">///</span><br><span class="line">/// - throws: An `Error` if the type cannot be converted to a `URL`.</span><br><span class="line">///</span><br><span class="line">/// - returns: A URL or throws an `Error`.</span><br><span class="line">func asURL() throws -&gt; URL</span><br><span class="line">&#125;</span><br><span class="line">request，download，upload，</span><br><span class="line">SessionManager：负责创建和管理“Request”对象，以及他们底层“NSURLSession”</span><br><span class="line">open static let `default`: SessionManager = &#123;</span><br><span class="line">let configuration = URLSessionConfiguration.default</span><br><span class="line">configuration.httpAdditionalHeaders =  SessionManager.defaultHTTPHeaders</span><br><span class="line">return SessionManager(configuration: configuration)</span><br><span class="line">&#125;()</span><br><span class="line">defaultHTTPHeaders： </span><br><span class="line">return [</span><br><span class="line">&quot;Accept-Encoding&quot;: acceptEncoding,</span><br><span class="line">&quot;Accept-Language&quot;: acceptLanguage,</span><br><span class="line">&quot;User-Agent&quot;: userAgent</span><br><span class="line">]</span><br><span class="line">///request请求</span><br><span class="line">public func request(</span><br><span class="line">_ url: URLConvertible,</span><br><span class="line">method: HTTPMethod = .get,</span><br><span class="line">parameters: Parameters? = nil,</span><br><span class="line">encoding: ParameterEncoding = URLEncoding.default,</span><br><span class="line">headers: HTTPHeaders? = nil)</span><br><span class="line">-&gt; DataRequest</span><br><span class="line">&#123;</span><br><span class="line">return SessionManager.default.request(</span><br><span class="line">url,</span><br><span class="line">method: method,</span><br><span class="line">parameters: parameters,</span><br><span class="line">encoding: encoding,</span><br><span class="line">headers: headers</span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
@@ -460,7 +463,7 @@
               <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="LPZ">
             
               <p class="site-author-name" itemprop="name">LPZ</p>
-              <p class="site-description motion-element" itemprop="description">Record work, life, love!</p>
+              <p class="site-description motion-element" itemprop="description">Record work, life and love!</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -492,7 +495,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">6</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
