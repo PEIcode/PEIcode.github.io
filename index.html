@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="Record work, life, love! Wish everyone have a lucky everyday!">
+<meta name="description" content="Record work, life, love!">
 <meta name="keywords" content="everything">
 <meta property="og:type" content="website">
 <meta property="og:title" content="PEI丶BLOG">
 <meta property="og:url" content="http://yoursite.com/index.html">
 <meta property="og:site_name" content="PEI丶BLOG">
-<meta property="og:description" content="Record work, life, love! Wish everyone have a lucky everyday!">
+<meta property="og:description" content="Record work, life, love!">
 <meta property="og:locale" content="zh-Hans">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PEI丶BLOG">
-<meta name="twitter:description" content="Record work, life, love! Wish everyone have a lucky everyday!">
+<meta name="twitter:description" content="Record work, life, love!">
 
 
 
@@ -161,7 +161,7 @@
       </a>
     </div>
       
-        <p class="site-subtitle">Happy coding && Happy Life</p>
+        <p class="site-subtitle">Happy coding!</p>
       
   </div>
 
@@ -197,6 +197,16 @@
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br>
             
             标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br>
+            
+            分类
           </a>
         </li>
       
@@ -243,12 +253,171 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/Alamofire-结构解读/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LPZ">
+      <meta itemprop="description" content>
+      <meta itemprop="image" content="/images/avatar.jpeg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="PEI丶BLOG">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/26/Alamofire-结构解读/" itemprop="url">Alamofire 结构解读 </a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T14:59:16+08:00">
+                2019-04-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">源码解读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote>
+<p>源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。</p>
+</blockquote>
+<ul>
+<li>request，download，upload，<br>iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。<br>查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必须提供一个completion回调函数来获取数据）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">初始化方法：</span><br><span class="line">URLSession(configuration: URLSessionConfiguration, delegate: URLSessionDelegate?, delegateQueue: OperationQueue?)</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<p>URLSession:支持data file ftp http 和 https的url，支持代理服务和SOCKS通道。并被配置到用户的系统中；支持HTTP/1.1,SPDY,HTTP/2协议。HTTP/2的支持被描述在RFC 7540,并且需要一个服务支持，无论是ALPN还是NPN。<br>首先，要建立HTTP连接，需要用到URLSession；每一个被指定了URL的session的任务，需要共享一个URLSessionConfiguration，这个object定义了网络链接的行为，例如，对于同一个host最大并发连接数量等；</p>
+<hr>
+<p>URLSessionTask是一个表示任务对象的抽象类，一个会话创建一个任务，这里任务是指获取数据、下载或上传文件。<br>有三种类型的会话<br>URLSessionDataTask: 处理从HTTP get请求中从服务器获取数据到内存中。<br>URLSessionUploadTask:上传硬盘中的文件到服务器，一般是HTTP POST 或 PUT方式<br>URLSessionDownloadTask: 从远程服务器下载文件到临时文件位置。</p>
+<hr>
+<p>AFError.swift<br>里面定义了很多Alamofire请求返回的错误类型。<br>包括：判断url是否可用，response序列化，response失败原因，参数编码失败等，<br>描述的localizedDescription，会返回错误原因。</p>
+<hr>
+<p>目录结构<br>备注<br>AFError</p>
+<p>Alamofire</p>
+<hr>
+<p>Alamofire.swift<br>进行网络请求的任务，所有的方法都封装在这。<br>内部也是通过SessionManager来处理请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public protocol URLConvertible &#123;</span><br><span class="line">/// Returns a URL that conforms to RFC 2396 or throws an `Error`.</span><br><span class="line">///</span><br><span class="line">/// - throws: An `Error` if the type cannot be converted to a `URL`.</span><br><span class="line">///</span><br><span class="line">/// - returns: A URL or throws an `Error`.</span><br><span class="line">func asURL() throws -&gt; URL</span><br><span class="line">&#125;</span><br><span class="line">request，download，upload，</span><br><span class="line">SessionManager：负责创建和管理“Request”对象，以及他们底层“NSURLSession”</span><br><span class="line">open static let `default`: SessionManager = &#123;</span><br><span class="line">let configuration = URLSessionConfiguration.default</span><br><span class="line">configuration.httpAdditionalHeaders =  SessionManager.defaultHTTPHeaders</span><br><span class="line">return SessionManager(configuration: configuration)</span><br><span class="line">&#125;()</span><br><span class="line">defaultHTTPHeaders： </span><br><span class="line">return [</span><br><span class="line">&quot;Accept-Encoding&quot;: acceptEncoding,</span><br><span class="line">&quot;Accept-Language&quot;: acceptLanguage,</span><br><span class="line">&quot;User-Agent&quot;: userAgent</span><br><span class="line">]</span><br><span class="line">///request请求</span><br><span class="line">public func request(</span><br><span class="line">_ url: URLConvertible,</span><br><span class="line">method: HTTPMethod = .get,</span><br><span class="line">parameters: Parameters? = nil,</span><br><span class="line">encoding: ParameterEncoding = URLEncoding.default,</span><br><span class="line">headers: HTTPHeaders? = nil)</span><br><span class="line">-&gt; DataRequest</span><br><span class="line">&#123;</span><br><span class="line">return SessionManager.default.request(</span><br><span class="line">url,</span><br><span class="line">method: method,</span><br><span class="line">parameters: parameters,</span><br><span class="line">encoding: encoding,</span><br><span class="line">headers: headers</span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>Request：负责发送和接收从服务器返回的响应和相关数据，以及管理他的底层“URLSessionTask”，还有分类DataRequest，负责请求回来的数据</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/关于生活的感悟/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -284,6 +453,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/生活/" itemprop="url" rel="index">
+                    <span itemprop="name">生活</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -368,7 +559,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -404,6 +595,28 @@
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -573,7 +786,7 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -609,6 +822,28 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/网络请求/" itemprop="url" rel="index">
+                    <span itemprop="name">网络请求</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -709,7 +944,7 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
       <meta itemprop="description" content>
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpeg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -745,6 +980,28 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
             
           </span>
 
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/源码解读/" itemprop="url" rel="index">
+                    <span itemprop="name">源码解读</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
           
 
           
@@ -860,8 +1117,10 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image" src="/images/avatar.jpeg" alt="LPZ">
+            
               <p class="site-author-name" itemprop="name">LPZ</p>
-              <p class="site-description motion-element" itemprop="description">Record work, life, love! Wish everyone have a lucky everyday!</p>
+              <p class="site-description motion-element" itemprop="description">Record work, life, love!</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -871,12 +1130,21 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-count">5</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
             
 
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">4</span>
+                  <span class="site-state-item-name">分类</span>
+                </a>
+              </div>
             
 
             
@@ -884,7 +1152,7 @@ id returnValue = [someObject messageName:parameter];</code><br>实例对象调�
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">3</span>
+                  <span class="site-state-item-count">8</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
