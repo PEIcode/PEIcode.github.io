@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Alamofire,Swift网络请求,">
+  <meta name="keywords" content="life,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
-<meta name="keywords" content="Alamofire,Swift网络请求">
+<meta name="description" content="今天刚完成设计答辩，今天刚得知消息：17号总答辩，26号毕业典礼。怎么说呢，接下来的23天，或许就是我大学生涯的最后时期了。曾经憧憬过自己的大学会怎样怎样度过。现在想想，嗯，在学业上，表现的还可以，不能说满意，至少没有荒废。在实验室的日子，逼着自己学习，那段时间很迷惘，觉得学完iOS就可以找到一个不错的工作，其实，社会一直在变，IT行业更是如此，新技术不断更新，作为一名准程序员，必须时刻保证自己的">
+<meta name="keywords" content="life">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Alamofire 结构解读 ">
-<meta property="og:url" content="http://yoursite.com/2019/04/26/Alamofire-结构解读/index.html">
+<meta property="og:title" content="回校毕业啦">
+<meta property="og:url" content="http://yoursite.com/2019/06/05/回校毕业啦/index.html">
 <meta property="og:site_name" content="PEI丶BLOG">
-<meta property="og:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
+<meta property="og:description" content="今天刚完成设计答辩，今天刚得知消息：17号总答辩，26号毕业典礼。怎么说呢，接下来的23天，或许就是我大学生涯的最后时期了。曾经憧憬过自己的大学会怎样怎样度过。现在想想，嗯，在学业上，表现的还可以，不能说满意，至少没有荒废。在实验室的日子，逼着自己学习，那段时间很迷惘，觉得学完iOS就可以找到一个不错的工作，其实，社会一直在变，IT行业更是如此，新技术不断更新，作为一名准程序员，必须时刻保证自己的">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-26T07:36:58.716Z">
+<meta property="og:updated_time" content="2019-06-05T13:45:35.494Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alamofire 结构解读 ">
-<meta name="twitter:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="回校毕业啦">
+<meta name="twitter:description" content="今天刚完成设计答辩，今天刚得知消息：17号总答辩，26号毕业典礼。怎么说呢，接下来的23天，或许就是我大学生涯的最后时期了。曾经憧憬过自己的大学会怎样怎样度过。现在想想，嗯，在学业上，表现的还可以，不能说满意，至少没有荒废。在实验室的日子，逼着自己学习，那段时间很迷惘，觉得学完iOS就可以找到一个不错的工作，其实，社会一直在变，IT行业更是如此，新技术不断更新，作为一名准程序员，必须时刻保证自己的">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/26/Alamofire-结构解读/">
+  <link rel="canonical" href="http://yoursite.com/2019/06/05/回校毕业啦/">
 
 
 
 
 
-  <title>Alamofire 结构解读  | PEI丶BLOG</title>
+  <title>回校毕业啦 | PEI丶BLOG</title>
   
 
 
@@ -255,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/Alamofire-结构解读/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/06/05/回校毕业啦/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
@@ -272,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Alamofire 结构解读 </h1>
+          <h1 class="post-title" itemprop="name headline">回校毕业啦</h1>
         
 
         <div class="post-meta">
@@ -284,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T14:59:16+08:00">
-                2019-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-05T20:45:28+08:00">
+                2019-06-05
               </time>
             
 
@@ -294,28 +292,6 @@
             
           </span>
 
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/源码解读/" itemprop="url" rel="index">
-                    <span itemprop="name">源码解读</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,25 +320,7 @@
       
 
       
-        <blockquote>
-<p>源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。</p>
-</blockquote>
-<ul>
-<li>request，download，upload，<br>iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。<br>查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必须提供一个completion回调函数来获取数据）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">初始化方法：</span><br><span class="line">URLSession(configuration: URLSessionConfiguration, delegate: URLSessionDelegate?, delegateQueue: OperationQueue?)</span><br></pre></td></tr></table></figure>
-</li>
-</ul>
-<p>URLSession:支持data file ftp http 和 https的url，支持代理服务和SOCKS通道。并被配置到用户的系统中；支持HTTP/1.1,SPDY,HTTP/2协议。HTTP/2的支持被描述在RFC 7540,并且需要一个服务支持，无论是ALPN还是NPN。<br>首先，要建立HTTP连接，需要用到URLSession；每一个被指定了URL的session的任务，需要共享一个URLSessionConfiguration，这个object定义了网络链接的行为，例如，对于同一个host最大并发连接数量等；</p>
-<hr>
-<p>URLSessionTask是一个表示任务对象的抽象类，一个会话创建一个任务，这里任务是指获取数据、下载或上传文件。<br>有三种类型的会话<br>URLSessionDataTask: 处理从HTTP get请求中从服务器获取数据到内存中。<br>URLSessionUploadTask:上传硬盘中的文件到服务器，一般是HTTP POST 或 PUT方式<br>URLSessionDownloadTask: 从远程服务器下载文件到临时文件位置。</p>
-<hr>
-<p>AFError.swift<br>里面定义了很多Alamofire请求返回的错误类型。<br>包括：判断url是否可用，response序列化，response失败原因，参数编码失败等，<br>描述的localizedDescription，会返回错误原因。</p>
-<hr>
-<p>目录结构<br><img src="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Alamofire目录.png"></p>
-<p>备注<br>AFError</p>
-<p>Alamofire</p>
-<hr>
-<p>Alamofire.swift<br>进行网络请求的任务，所有的方法都封装在这。<br>内部也是通过SessionManager来处理请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public protocol URLConvertible &#123;</span><br><span class="line">/// Returns a URL that conforms to RFC 2396 or throws an `Error`.</span><br><span class="line">///</span><br><span class="line">/// - throws: An `Error` if the type cannot be converted to a `URL`.</span><br><span class="line">///</span><br><span class="line">/// - returns: A URL or throws an `Error`.</span><br><span class="line">func asURL() throws -&gt; URL</span><br><span class="line">&#125;</span><br><span class="line">request，download，upload，</span><br><span class="line">SessionManager：负责创建和管理“Request”对象，以及他们底层“NSURLSession”</span><br><span class="line">open static let `default`: SessionManager = &#123;</span><br><span class="line">let configuration = URLSessionConfiguration.default</span><br><span class="line">configuration.httpAdditionalHeaders =  SessionManager.defaultHTTPHeaders</span><br><span class="line">return SessionManager(configuration: configuration)</span><br><span class="line">&#125;()</span><br><span class="line">defaultHTTPHeaders： </span><br><span class="line">return [</span><br><span class="line">&quot;Accept-Encoding&quot;: acceptEncoding,</span><br><span class="line">&quot;Accept-Language&quot;: acceptLanguage,</span><br><span class="line">&quot;User-Agent&quot;: userAgent</span><br><span class="line">]</span><br><span class="line">///request请求</span><br><span class="line">public func request(</span><br><span class="line">_ url: URLConvertible,</span><br><span class="line">method: HTTPMethod = .get,</span><br><span class="line">parameters: Parameters? = nil,</span><br><span class="line">encoding: ParameterEncoding = URLEncoding.default,</span><br><span class="line">headers: HTTPHeaders? = nil)</span><br><span class="line">-&gt; DataRequest</span><br><span class="line">&#123;</span><br><span class="line">return SessionManager.default.request(</span><br><span class="line">url,</span><br><span class="line">method: method,</span><br><span class="line">parameters: parameters,</span><br><span class="line">encoding: encoding,</span><br><span class="line">headers: headers</span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Request：负责发送和接收从服务器返回的响应和相关数据，以及管理他的底层“URLSessionTask”，还有分类DataRequest，负责请求回来的数据</p>
+        <p>今天刚完成设计答辩，今天刚得知消息：17号总答辩，26号毕业典礼。<br>怎么说呢，接下来的23天，或许就是我大学生涯的最后时期了。曾经憧憬过自己的大学会怎样怎样度过。现在想想，嗯，在学业上，表现的还可以，不能说满意，至少没有荒废。在实验室的日子，逼着自己学习，那段时间很迷惘，觉得学完iOS就可以找到一个不错的工作，其实，社会一直在变，IT行业更是如此，新技术不断更新，作为一名准程序员，必须时刻保证自己的掌握的技术要与时俱进。在北京的面试中，就可以感受到，对实习生的要求也在慢慢提高，只有在每一次的面试中，总结自己在哪些方面有些欠缺，及时去补充知识。<br>18年7月16号，在北京的第一天，也是我的幸运日，现在的公司要我了，也很感激老大，给了我第一份实习工作。从最开始的swift小白，到现在能够开发，也挺喜欢Swift这门语言，使用起来很简洁，快速。第一次接触公司的项目，发现和自己的知识面还是不够，只能勉强参与开发，必须抓紧熟悉公司的项目，看着一大堆文件，无从下手，只好自己一个一个看，熟悉功能的实现。开始很小心翼翼，融入一个新的环境，不过很开心，每个同事都很好，像导师，指导我，挑出我的问题，很感谢他们。在生活方面，虽说住得远了点，但周末还可以自己学的做饭。我记得小时候，总听到家人说，你看，那个那个小孩都会自己做饭了，你怎么不学一下，我总是不屑一顾，我觉得做饭这个东西，我现在不需要，可以不去接触它，现在证明，当我需要的时候，我也可以学会做饭。不过一个人的时候，真的很无聊，看着来北京的同学一个个都走了，哎，也不知道怎么说，生活不易！在工作方面，我容易满足，大厂的诱惑力很大，我却没有为之付出，觉得只要做好现在的工作就好了，可能心中也没有特别想去吧，说到底，还是自己太懒了，不想刷题，不想去专研，所以才不够。在爱情上，能遇到孙皮皮，我很幸运，在她身上，有很多优点，正是我所欠缺的，我们可以相辅相成，为了我们的美好生活去奋斗。我一直希望结束异地恋，觉得两个人在一起，会更加幸福，但是目前，压力还是很大的，感觉只有找出一个我们两个人都能赚钱的方法，现实就是这样，不过我们能够打破这个现实的屏障，爱情事业双丰收！<br>北京这一年，辛苦也幸福，总之，只要你努力点，生活会给你开一扇窗，加油吧，北京可以包容每一个努力的人！</p>
 
       
     </div>
@@ -380,9 +338,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Alamofire/" rel="tag"># Alamofire</a>
-          
-            <a href="/tags/Swift网络请求/" rel="tag"># Swift网络请求</a>
+            <a href="/tags/life/" rel="tag"># life</a>
           
         </div>
       
@@ -395,8 +351,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/26/关于生活的感悟/" rel="next" title="关于生活的感悟--五月篇">
-                <i class="fa fa-chevron-left"></i> 关于生活的感悟--五月篇
+              <a href="/2019/04/26/Alamofire-结构解读/" rel="next" title="Alamofire 结构解读 ">
+                <i class="fa fa-chevron-left"></i> Alamofire 结构解读 
               </a>
             
           </div>
@@ -404,10 +360,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2019/06/05/回校毕业啦/" rel="prev" title="回校毕业啦">
-                回校毕业啦 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
