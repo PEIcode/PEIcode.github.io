@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Alamofire,Swift网络请求,">
+  <meta name="keywords" content="Swift,">
 
 
 
@@ -79,20 +79,18 @@
 
 
 
-<meta name="description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
-<meta name="keywords" content="Alamofire,Swift网络请求">
+<meta name="description" content="值类型和引用类型首先，需要了解Swift中的值类型和引用类型。 在Swift中值类型: 基本数据类型（Int，Double，String，Array，Dictionary）引用类型: class, block, function  值类型（Value Types）：每份实例都保留了一份独有的数据拷贝，一般以结构体（struct）、枚举（enum）或者元组（tuple）的形事出现。 引用类型（Ref">
+<meta name="keywords" content="Swift">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Alamofire 结构解读 ">
-<meta property="og:url" content="http://yoursite.com/2019/04/26/Alamofire-结构解读/index.html">
+<meta property="og:title" content="Swift中的值类型和引用类型">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/Swift值类型和引用类型/index.html">
 <meta property="og:site_name" content="PEI丶BLOG">
-<meta property="og:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
+<meta property="og:description" content="值类型和引用类型首先，需要了解Swift中的值类型和引用类型。 在Swift中值类型: 基本数据类型（Int，Double，String，Array，Dictionary）引用类型: class, block, function  值类型（Value Types）：每份实例都保留了一份独有的数据拷贝，一般以结构体（struct）、枚举（enum）或者元组（tuple）的形事出现。 引用类型（Ref">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
-<meta property="og:updated_time" content="2019-04-26T07:36:58.716Z">
+<meta property="og:updated_time" content="2019-08-30T09:00:29.419Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Alamofire 结构解读 ">
-<meta name="twitter:description" content="源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。   request，download，upload，iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必">
-<meta name="twitter:image" content="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240">
+<meta name="twitter:title" content="Swift中的值类型和引用类型">
+<meta name="twitter:description" content="值类型和引用类型首先，需要了解Swift中的值类型和引用类型。 在Swift中值类型: 基本数据类型（Int，Double，String，Array，Dictionary）引用类型: class, block, function  值类型（Value Types）：每份实例都保留了一份独有的数据拷贝，一般以结构体（struct）、枚举（enum）或者元组（tuple）的形事出现。 引用类型（Ref">
 
 
 
@@ -122,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/04/26/Alamofire-结构解读/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/13/Swift值类型和引用类型/">
 
 
 
 
 
-  <title>Alamofire 结构解读  | PEI丶BLOG</title>
+  <title>Swift中的值类型和引用类型 | PEI丶BLOG</title>
   
 
 
@@ -255,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/26/Alamofire-结构解读/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/Swift值类型和引用类型/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LPZ">
@@ -272,7 +270,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Alamofire 结构解读 </h1>
+          <h1 class="post-title" itemprop="name headline">Swift中的值类型和引用类型</h1>
         
 
         <div class="post-meta">
@@ -284,8 +282,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-26T14:59:16+08:00">
-                2019-04-26
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T11:16:04+08:00">
+                2019-08-13
               </time>
             
 
@@ -307,8 +305,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/源码解读/" itemprop="url" rel="index">
-                    <span itemprop="name">源码解读</span>
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
                   </a>
                 </span>
 
@@ -344,25 +342,29 @@
       
 
       
-        <blockquote>
-<p>源码阅读，我觉得首先了解 它的框架，结构，或许就是架构吧。</p>
-</blockquote>
+        <h4 id="值类型和引用类型"><a href="#值类型和引用类型" class="headerlink" title="值类型和引用类型"></a>值类型和引用类型</h4><p>首先，需要了解Swift中的值类型和引用类型。</p>
+<p><strong>在Swift中</strong><br><strong>值类型: 基本数据类型（Int，Double，String，Array，Dictionary）</strong><br><strong>引用类型: class, block, function</strong></p>
 <ul>
-<li>request，download，upload，<br>iOS进行网络请求：URLSession，创建session，sessionconfig，request（请求体，url，方法等）。<br>查看请求的数据data，有两种方式，一种是代理，另一种是block（您的URLSession对象不需要委托。如果没有分配委托，则使用系统提供的委托，并且必须提供一个completion回调函数来获取数据）。<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">初始化方法：</span><br><span class="line">URLSession(configuration: URLSessionConfiguration, delegate: URLSessionDelegate?, delegateQueue: OperationQueue?)</span><br></pre></td></tr></table></figure>
-</li>
+<li>值类型（Value Types）：每份实例都保留了一份独有的数据拷贝，一般以结构体（struct）、枚举（enum）或者元组（tuple）的形事出现。</li>
+<li>引用类型（Referance Types）：每个实例共享同一份数据来源，一般以类（class）的形式出现。</li>
 </ul>
-<p>URLSession:支持data file ftp http 和 https的url，支持代理服务和SOCKS通道。并被配置到用户的系统中；支持HTTP/1.1,SPDY,HTTP/2协议。HTTP/2的支持被描述在RFC 7540,并且需要一个服务支持，无论是ALPN还是NPN。<br>首先，要建立HTTP连接，需要用到URLSession；每一个被指定了URL的session的任务，需要共享一个URLSessionConfiguration，这个object定义了网络链接的行为，例如，对于同一个host最大并发连接数量等；</p>
+<h4 id="Copy-on-Write-写时复制"><a href="#Copy-on-Write-写时复制" class="headerlink" title="Copy on Write(写时复制)"></a>Copy on Write(写时复制)</h4><ul>
+<li>Copy-on-Write是一种用来优化占用内存大的值类型的拷贝操作的机制。</li>
+<li>对于Int、String等基本类型的值类型，它们在赋值的时候就会发生拷贝，它们没有Copy-on-Write这一特性（因为Copy-on-Write带来的开销往往比直接复制的开销要大）。</li>
+<li>对于Array、Dictionary、Set类型，当它们赋值的时候不会发生拷贝，只有在修改的之后才会发生拷贝，即Copy-on-Write。</li>
+<li>在swift中，当你有一个占用内存很大的一个值类型，并且不得不将它赋值给另一个变量或者当做函数的参数传递的时候，拷贝它的值是一个非常消耗内存的操作，因为你不得不拷贝它所有的东西放置在另一块内存中。</li>
+<li>为了优化这个问题，Swift对于一些特定的值类型(集合类型：Array、Dictionary、Set)做了一些优化，在对于Array进行拷贝的时候，当传递的值进行改变的时候才会发生真正的拷贝。而对于String、Int等值类型，在赋值的时候就会发生拷贝。</li>
+</ul>
+<h4 id="存储方式"><a href="#存储方式" class="headerlink" title="存储方式"></a>存储方式</h4><ol>
+<li>值类型和引用类型在内存上存储的地方不一样。值类型的值是存储在内存的栈当中。引用类型的值是存储在内存的堆中。</li>
+<li>在传递值类型和传递引用类型的时候，传递方式不一样。值类型我们称之为值传递，引用类型我们称之为引用传递。</li>
+<li>引用类型的对象存储在堆中，并且会分配一个内存地址。该内存地址会存储到栈空间，栈空间名为变量名。<br>即读取引用类型对象的顺序：变量—&gt;内存地址—&gt;实例对象。</li>
+</ol>
 <hr>
-<p>URLSessionTask是一个表示任务对象的抽象类，一个会话创建一个任务，这里任务是指获取数据、下载或上传文件。<br>有三种类型的会话<br>URLSessionDataTask: 处理从HTTP get请求中从服务器获取数据到内存中。<br>URLSessionUploadTask:上传硬盘中的文件到服务器，一般是HTTP POST 或 PUT方式<br>URLSessionDownloadTask: 从远程服务器下载文件到临时文件位置。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">//打印内存地址</span><br><span class="line">func address(of object: UnsafeRawPointer) -&gt; String &#123;</span><br><span class="line">    let addr = Int(bitPattern: object)</span><br><span class="line">    return String(format: &quot;%p&quot;, addr)</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">var number = 10</span><br><span class="line">var number2 = number</span><br><span class="line">print(address(of: &amp;number), address(of: &amp;number2))</span><br><span class="line">//打印内存地址为 number=0x1199d2030; number2=0x1199d2038</span><br><span class="line">    栈</span><br><span class="line"> ------------</span><br><span class="line">|number(oxa) | ----|</span><br><span class="line">|------------|     |</span><br><span class="line">|number2(oxa)| ----|</span><br><span class="line">|------------|     |</span><br><span class="line">|            |     /</span><br><span class="line">|------------|    /   </span><br><span class="line">|  oxa(10)   |&lt;-- </span><br><span class="line"> ------------</span><br></pre></td></tr></table></figure>
 <hr>
-<p>AFError.swift<br>里面定义了很多Alamofire请求返回的错误类型。<br>包括：判断url是否可用，response序列化，response失败原因，参数编码失败等，<br>描述的localizedDescription，会返回错误原因。</p>
-<hr>
-<p>目录结构<br><img src="https://upload-images.jianshu.io/upload_images/6379271-c51c624b4661c6a5.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240" alt="Alamofire目录.png"></p>
-<p>备注<br>AFError</p>
-<p>Alamofire</p>
-<hr>
-<p>Alamofire.swift<br>进行网络请求的任务，所有的方法都封装在这。<br>内部也是通过SessionManager来处理请求。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">public protocol URLConvertible &#123;</span><br><span class="line">/// Returns a URL that conforms to RFC 2396 or throws an `Error`.</span><br><span class="line">///</span><br><span class="line">/// - throws: An `Error` if the type cannot be converted to a `URL`.</span><br><span class="line">///</span><br><span class="line">/// - returns: A URL or throws an `Error`.</span><br><span class="line">func asURL() throws -&gt; URL</span><br><span class="line">&#125;</span><br><span class="line">request，download，upload，</span><br><span class="line">SessionManager：负责创建和管理“Request”对象，以及他们底层“NSURLSession”</span><br><span class="line">open static let `default`: SessionManager = &#123;</span><br><span class="line">let configuration = URLSessionConfiguration.default</span><br><span class="line">configuration.httpAdditionalHeaders =  SessionManager.defaultHTTPHeaders</span><br><span class="line">return SessionManager(configuration: configuration)</span><br><span class="line">&#125;()</span><br><span class="line">defaultHTTPHeaders： </span><br><span class="line">return [</span><br><span class="line">&quot;Accept-Encoding&quot;: acceptEncoding,</span><br><span class="line">&quot;Accept-Language&quot;: acceptLanguage,</span><br><span class="line">&quot;User-Agent&quot;: userAgent</span><br><span class="line">]</span><br><span class="line">///request请求</span><br><span class="line">public func request(</span><br><span class="line">_ url: URLConvertible,</span><br><span class="line">method: HTTPMethod = .get,</span><br><span class="line">parameters: Parameters? = nil,</span><br><span class="line">encoding: ParameterEncoding = URLEncoding.default,</span><br><span class="line">headers: HTTPHeaders? = nil)</span><br><span class="line">-&gt; DataRequest</span><br><span class="line">&#123;</span><br><span class="line">return SessionManager.default.request(</span><br><span class="line">url,</span><br><span class="line">method: method,</span><br><span class="line">parameters: parameters,</span><br><span class="line">encoding: encoding,</span><br><span class="line">headers: headers</span><br><span class="line">)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>Request：负责发送和接收从服务器返回的响应和相关数据，以及管理他的底层“URLSessionTask”，还有分类DataRequest，负责请求回来的数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Person &#123;</span><br><span class="line">    var name: String</span><br><span class="line">    init(name: String) &#123;</span><br><span class="line">        self.name = name</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line">let p = Person(name: &quot;11&quot;)</span><br><span class="line">let p1 = p</span><br><span class="line">p1.name = &quot;22&quot;</span><br><span class="line">print(p.name, p1.name)// 22 22</span><br><span class="line"></span><br><span class="line">    栈                堆</span><br><span class="line"> ----------       ----------</span><br><span class="line">|     p    |----&gt;| Person   |</span><br><span class="line">|----------|  |  |----------|</span><br><span class="line">|    p1    |__|  | name = 11|</span><br><span class="line">|----------|     |          |</span><br><span class="line">|          |     |          |</span><br><span class="line"> ----------       ----------</span><br></pre></td></tr></table></figure>
+<p>其中，如果引用类型里面包含值类型，值类型会存在引用类型的存储区中。</p>
 
       
     </div>
@@ -380,9 +382,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/Alamofire/" rel="tag"># Alamofire</a>
-          
-            <a href="/tags/Swift网络请求/" rel="tag"># Swift网络请求</a>
+            <a href="/tags/Swift/" rel="tag"># Swift</a>
           
         </div>
       
@@ -395,8 +395,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/04/26/关于生活的感悟/" rel="next" title="关于生活的感悟--五月篇">
-                <i class="fa fa-chevron-left"></i> 关于生活的感悟--五月篇
+              <a href="/2019/06/05/回校毕业啦/" rel="next" title="回校毕业啦">
+                <i class="fa fa-chevron-left"></i> 回校毕业啦
               </a>
             
           </div>
@@ -405,8 +405,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/06/05/回校毕业啦/" rel="prev" title="回校毕业啦">
-                回校毕业啦 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/23/Swift关键字/" rel="prev" title="Swift关键字">
+                Swift关键字 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -459,8 +459,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -556,6 +565,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#值类型和引用类型"><span class="nav-number">1.</span> <span class="nav-text">值类型和引用类型</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Copy-on-Write-写时复制"><span class="nav-number">2.</span> <span class="nav-text">Copy on Write(写时复制)</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#存储方式"><span class="nav-number">3.</span> <span class="nav-text">存储方式</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
